@@ -18,7 +18,7 @@ const FeedbackForm = () => {
 
     const fetchFeedbacks = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/api/feedback/feedback');
+            const response = await axios.get('https://kms-api.vercel.app/api/feedback/feedback');
             if (response.data.success) {
                 setFeedbacks(response.data.feedbacks);
             } else {
@@ -37,7 +37,7 @@ const FeedbackForm = () => {
 
     const handleFeedbackSubmit = async () => {
         try {
-            await axios.post('http://localhost:5001/api/feedback/feedback', feedbackData);
+            await axios.post('https://kms-api.vercel.app/api/feedback/feedback', feedbackData);
             alert('Feedback submitted successfully!');
             setFeedbackData({ name: '', email: '', feedback: '' }); // Clear form after submission
         } catch (error) {

@@ -27,7 +27,7 @@ const InformationPage = () => {
     useEffect(() => {
         const fetchInformation = async () => {
             try {
-                const response = await axios.get('http://localhost:5001/api/info/information');
+                const response = await axios.get('https://kms-api.vercel.app/api/info/information');
                 setInformation(response.data);
             } catch (error) {
                 console.error('Error fetching information:', error.response?.data?.error);
@@ -44,7 +44,7 @@ const InformationPage = () => {
 
     const handleAddInformation = async () => {
         try {
-            const response = await axios.post('http://localhost:5001/api/info/information', newInformation);
+            const response = await axios.post('https://kms-api.vercel.app/api/info/information', newInformation);
             setInformation((prevInformation) => [...prevInformation, response.data]);
             setNewInformation({ title: '', content: '', image: '', author: '' });
         } catch (error) {
@@ -57,7 +57,7 @@ const InformationPage = () => {
 
         try {
             const response = await axios.put(
-                `http://localhost:5001/api/info/information/${selectedInformation._id}`,
+                `https://kms-api.vercel.app/api/info/information/${selectedInformation._id}`,
                 newInformation
             );
             setInformation((prevInformation) =>
@@ -72,7 +72,7 @@ const InformationPage = () => {
 
     const handleDeleteInformation = async (id) => {
         try {
-            await axios.delete(`http://localhost:5001/api/info/information/${id}`);
+            await axios.delete(`https://kms-api.vercel.app/api/info/information/${id}`);
             setInformation((prevInformation) => prevInformation.filter((info) => info._id !== id));
         } catch (error) {
             console.error('Error deleting information:', error.response?.data?.error);

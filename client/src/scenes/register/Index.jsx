@@ -16,7 +16,7 @@ const App = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post('http://localhost:5001/user/register', {
+            const response = await axios.post('https://kms-api.vercel.app/user/register', {
                 username,
                 password,
                 email,
