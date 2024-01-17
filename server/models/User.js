@@ -2,12 +2,13 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
     {
-        name: {
+        username: {
             type: String,
             required: true,
             min: 2,
             max: 100,
         },
+        name: String,
         email: {
             type: String,
             required: true,
@@ -25,11 +26,7 @@ const UserSchema = new mongoose.Schema(
         occupation: String,
         phoneNumber: String,
         transactions: Array,
-        role: {
-            type: String,
-            enum: ["employee", "admin", "manager", "client", "superadmin", "user"],
-            default: "employee",
-        },
+        role: String
     },
     { timestamps: true }
 );

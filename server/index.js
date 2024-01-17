@@ -9,6 +9,9 @@ import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
+import userRoutes from "./routes/userRoutes.js";
+import informationRoutes from "./routes/informationRoutes.js";
+import feedbackRoutes from "./routes/feedbackRoutes.js";
 
 // data imports
 import User from "./models/User.js";
@@ -42,6 +45,11 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+app.use('/user', userRoutes);
+app.use('/api/info', informationRoutes);
+app.use('/api/feedback', feedbackRoutes)
+// Use routes
+
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000;
 mongoose

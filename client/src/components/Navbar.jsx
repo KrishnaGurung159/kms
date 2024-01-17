@@ -10,7 +10,8 @@ import {
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
-import profileImage from "assets/profile.jpeg";
+import profileImage from "assets/pp.jpg";
+import { useNavigate } from "react-router-dom";
 import {
     AppBar,
     Button,
@@ -27,11 +28,18 @@ import {
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
     const dispatch = useDispatch();
     const theme = useTheme();
-
+    const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState(null);
     const isOpen = Boolean(anchorEl);
     const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
+    const handleLogout = () => {
+        // Implement any additional logout logic here (e.g., clearing authentication tokens)
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        navigate('/');
+    };
+
     return (
         <AppBar
             sx={{
@@ -117,7 +125,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                             onClose={handleClose}
                             anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                         >
-                            <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                            <MenuItem onClick={handleLogout}>Log Out</MenuItem>
                         </Menu>
                     </FlexBetween>
                 </FlexBetween>

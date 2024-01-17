@@ -12,26 +12,24 @@ import {
     Typography,
     useTheme,
 } from "@mui/material";
+import RedeemOutlinedIcon from '@mui/icons-material/RedeemOutlined';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
+import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {
     SettingsOutlined,
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
-    ShoppingCartOutlined,
     Groups2Outlined,
-    ReceiptLongOutlined,
-    PublicOutlined,
-    PointOfSaleOutlined,
-    TodayOutlined,
-    CalendarMonthOutlined,
     AdminPanelSettingsOutlined,
-    TrendingUpOutlined,
-    PieChartOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
-import profileImage from "assets/profile.jpeg";
+import profileImage from "assets/pp.jpg";
 
 const navItems = [
     {
@@ -39,57 +37,70 @@ const navItems = [
         icon: <HomeOutlined />,
     },
     {
-        text: "Client Facing",
+        text: "Admin Control",
         icon: null,
     },
     {
-        text: "Products",
-        icon: <ShoppingCartOutlined />,
-    },
-    {
-        text: "Customers",
+        text: "Users",
         icon: <Groups2Outlined />,
     },
     {
-        text: "Transactions",
-        icon: <ReceiptLongOutlined />,
+        text: "Register",
+        icon: <PersonAddAltOutlinedIcon />,
     },
     {
-        text: "Geography",
-        icon: <PublicOutlined />,
-    },
-    {
-        text: "Sales",
+        text: "Information",
         icon: null,
     },
     {
-        text: "Overview",
-        icon: <PointOfSaleOutlined />,
-    },
-    {
-        text: "Daily",
-        icon: <TodayOutlined />,
-    },
-    {
-        text: "Monthly",
-        icon: <CalendarMonthOutlined />,
-    },
-    {
-        text: "Breakdown",
-        icon: <PieChartOutlined />,
+        text: "Information",
+        icon: <InfoOutlinedIcon />,
     },
     {
         text: "Management",
         icon: null,
     },
     {
-        text: "Admin",
+        text: "User",
         icon: <AdminPanelSettingsOutlined />,
     },
     {
-        text: "Performance",
-        icon: <TrendingUpOutlined />,
+        text: "Extra Information",
+        icon: null,
     },
+    {
+        text: "Market_Data",
+        icon: <StorefrontOutlinedIcon />,
+    },
+    {
+        text: "Forex",
+        icon: <CurrencyExchangeOutlinedIcon />,
+    },
+    {
+        text: "News",
+        icon: <NewspaperOutlinedIcon />,
+    },
+    {
+        text: "Points",
+        icon: null,
+    },
+    {
+        text: "Redeem_Points",
+        icon: <RedeemOutlinedIcon />,
+    },
+    {
+        text: "Customer Support",
+        icon: null,
+    },
+    {
+        text: "Feedbacks",
+        icon: <RedeemOutlinedIcon />,
+    },
+    {
+        text: "FAQ",
+        icon: <RedeemOutlinedIcon />,
+    },
+
 ];
 
 const Sidebar = ({
@@ -127,14 +138,18 @@ const Sidebar = ({
                         },
                     }}
                 >
-                    <Box width="100%">
+                    <Box width="100%" >
                         <Box m="1.5rem 2rem 2rem 3rem">
                             <FlexBetween color={theme.palette.secondary.main}>
-                                <Box display="flex" alignItems="center" gap="0.5rem">
-                                    <Typography variant="h4" fontWeight="bold">
-                                        Hill & Knowlton
-                                    </Typography>
-                                </Box>
+                                <div style={{ backgroundColor: "#21295c" }} >
+                                    <Box display="flex" alignItems="center" gap="0.5rem" >
+                                        <Typography variant="h3" fontWeight="bold">
+                                            Hill & Knowlton
+                                        </Typography>
+                                    </Box>
+
+                                </div>
+
                                 {!isNonMobile && (
                                     <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                                         <ChevronLeft />
@@ -193,13 +208,9 @@ const Sidebar = ({
                         </List>
                     </Box>
 
-                    <Box position="absolute" bottom="2rem">
+                    <Box>
                         <Divider />
-
-                    </Box>
-                    <Box position="absolute" bottom="2rem">
-                        <Divider />
-                        <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+                        <FlexBetween textTransform="none" gap="1rem" m="1.5rem 1rem 1rem 1rem">
                             <Box
                                 component="img"
                                 alt="profile"

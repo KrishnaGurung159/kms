@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
+import { useNavigate } from "react-router-dom";
 import {
     DownloadOutlined,
     Email,
-    PointOfSale,
-    PersonAdd,
     Traffic,
 } from "@mui/icons-material";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import RedeemOutlinedIcon from '@mui/icons-material/RedeemOutlined';
 import {
     Box,
     Button,
@@ -25,6 +26,17 @@ const Dashboard = () => {
     const theme = useTheme();
     const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
     const { data, isLoading } = useGetDashboardQuery();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check if there is no token in local storage
+        const accessToken = localStorage.getItem('accessToken');
+
+        if (!accessToken) {
+            // Redirect to the login page if there is no token
+            navigate('/login');
+        }
+    }, [navigate]);
 
     const columns = [
         {
@@ -60,7 +72,7 @@ const Dashboard = () => {
     return (
         <Box m="1.5rem 2.5rem">
             <FlexBetween>
-                <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+                <Header title="DASHBOARD" subtitle="Welcome to your Hill & Knowlton Dashboard" />
 
                 <Box>
                     <Button
@@ -90,23 +102,23 @@ const Dashboard = () => {
             >
                 {/* ROW 1 */}
                 <StatBox
-                    title="Total Customers"
+                    title="Total Information"
                     value={data && data.totalCustomers}
                     increase="+14%"
                     description="Since last month"
                     icon={
-                        <Email
+                        <InfoOutlinedIcon
                             sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
                         />
                     }
                 />
                 <StatBox
-                    title="Sales Today"
+                    title="Total Points Collected"
                     value={data && data.todayStats.totalSales}
                     increase="+21%"
                     description="Since last month"
                     icon={
-                        <PointOfSale
+                        <RedeemOutlinedIcon
                             sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
                         />
                     }
@@ -121,12 +133,12 @@ const Dashboard = () => {
                     <OverviewChart view="sales" isDashboard={true} />
                 </Box>
                 <StatBox
-                    title="Monthly Sales"
+                    title="Mail Received"
                     value={data && data.thisMonthStats.totalSales}
                     increase="+5%"
                     description="Since last month"
                     icon={
-                        <PersonAdd
+                        <Email
                             sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
                         />
                     }

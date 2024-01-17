@@ -16,6 +16,16 @@ import Monthly from "scenes/monthly";
 import Breakdown from "scenes/breakdown";
 import Admin from "scenes/admin";
 import Performance from "scenes/performance";
+import NewsList from "scenes/news";
+import Register from "scenes/register/Index";
+import Information from "scenes/information";
+import AddInformation from "scenes/information/AddInformation";
+import MarketData from "scenes/marketdata";
+import Forex from "scenes/forex";
+import RedeemPoints from "scenes/points";
+import Feedbacks from "scenes/feedbacks";
+import FAQ from "scenes/faq";
+import Login from "scenes/login";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -39,10 +49,26 @@ function App() {
               <Route path="/breakdown" element={<Breakdown />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/performance" element={<Performance />} />
+              <Route path="/news" element={<NewsList />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/information" element={<Information />} />
+              <Route path="/add_information" element={<AddInformation />} />
+              <Route path="/user" element={<Admin />} />
+              <Route path="/users" element={<Admin />} />
+              <Route path="/market_data" element={<MarketData />} />
+              <Route path="/redeem_points" element={<RedeemPoints />} />
+              <Route path="/forex" element={<Forex />} />
+              <Route path="/feedbacks" element={<Feedbacks />} />
+              <Route path="/faq" element={<FAQ />} />
 
             </Route>
           </Routes>
         </ThemeProvider>
+        <Routes>
+
+          <Route path="/login" element={<Login />} />
+        </Routes>
+
       </BrowserRouter>
     </div>
   );

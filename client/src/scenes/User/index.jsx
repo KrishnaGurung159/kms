@@ -1,12 +1,12 @@
 import React from "react";
 import { Box, useTheme } from "@mui/material";
-import { useGetAllUsersQuery } from "state/api";
+import { useGetCustomersQuery } from "state/api";
 import Header from "components/Header";
 import { DataGrid } from "@mui/x-data-grid";
 
-const Customers = () => {
+const Users = () => {
     const theme = useTheme();
-    const { data, isLoading } = useGetAllUsersQuery();
+    const { data, isLoading } = useGetCustomersQuery();
     console.log("data", data);
 
     const columns = [
@@ -38,11 +38,7 @@ const Customers = () => {
             headerName: "Country",
             flex: 0.4,
         },
-        {
-            field: "occupation",
-            headerName: "Occupation",
-            flex: 1,
-        },
+
         {
             field: "role",
             headerName: "Role",
@@ -52,7 +48,7 @@ const Customers = () => {
 
     return (
         <Box m="1.5rem 2.5rem">
-            <Header title="CUSTOMERS" subtitle="List of Customers" />
+            <Header title="ALL USERS" subtitle="List of all Users" />
             <Box
                 mt="40px"
                 height="75vh"
@@ -92,4 +88,4 @@ const Customers = () => {
     );
 };
 
-export default Customers;
+export default Users;

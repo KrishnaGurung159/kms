@@ -1,0 +1,39 @@
+.info-container {
+    margin: 2rem;
+}
+
+.button1,
+.button2 {
+    padding: 10px;
+    margin: 10px;
+}
+
+.button1 {
+    background-color: rgb(46, 211, 156);
+}
+
+.button2 {
+    background-color: rgb(244, 62, 62);
+}
+
+.input {
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.button3 {
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 400;
+}
+
+.second-box {
+    display: flex;
+    background-color: #21295C;
+    margin: 2rem 0rem;
+    border-radius: 10px;
+    width: 50%;
+}
